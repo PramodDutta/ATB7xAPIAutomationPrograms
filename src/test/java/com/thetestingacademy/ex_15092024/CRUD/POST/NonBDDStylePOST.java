@@ -5,6 +5,7 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+import org.testng.annotations.Test;
 
 public class NonBDDStylePOST {
 
@@ -17,8 +18,8 @@ public class NonBDDStylePOST {
     //}
     // HEADER - Content Type -> application/json
 
-
-    public static void main(String[] args) {
+    @Test
+    public void test_non_bbd_post() {
 
         //  Payload  - String(1%), Hashmap(4%), Classes( 95%)
 

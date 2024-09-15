@@ -2,6 +2,7 @@ package com.thetestingacademy.ex_15092024.CRUD.POST;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
+import org.testng.annotations.Test;
 
 public class BDDStylePOST {
 
@@ -14,8 +15,8 @@ public class BDDStylePOST {
     //}
     // HEADER - Content Type -> application/json
 
-
-    public static void main(String[] args) {
+    @Test
+    public void test_post() {
 
        //  Payload  - String(1%), Hashmap(4%), Classes( 95%)
 
