@@ -78,28 +78,60 @@ public class TestCaseIntegration {
         validatableResponse.statusCode(200);
 
         bookingId = response.jsonPath().getString("bookingid");
+        System.out.println(bookingId);
         return bookingId;
     }
 
-    @Test()
+    @Test
     public void test_update_request_put() {
 
+        token = getToken();
+        bookingId= getBookingID();
+
+        String payloadPUT= "{\n" +
+                "    \"firstname\" : \"Anshul\",\n" +
+                "    \"lastname\" : \"Ji\",\n" +
+                "    \"totalprice\" : 111,\n" +
+                "    \"depositpaid\" : false,\n" +
+                "    \"bookingdates\" : {\n" +
+                "        \"checkin\" : \"2024-01-01\",\n" +
+                "        \"checkout\" : \"2024-01-01\"\n" +
+                "    },\n" +
+                "    \"additionalneeds\" : \"Lunch\"\n" +
+                "}";
+
+
+        requestSpecification = RestAssured.given();
+        requestSpecification.baseUri("https://restful-booker.herokuapp.com/");
+        requestSpecification.basePath("/booking/"+bookingId);
+        requestSpecification.contentType(ContentType.JSON);
+        requestSpecification.cookie("token",token);
+        requestSpecification.body(payloadPUT).log().all();
+
+        Response response = requestSpecification.when().put();
+
+
+        // Get Validatable response to perform validation
+        validatableResponse = response.then().log().all();
+        validatableResponse.statusCode(200);
     }
 
     @Test
     public void test_update_request_get() {
-
+        System.out.println(bookingId);
     }
 
     @Test
     public void test_delete_booking() {
+        System.out.println(bookingId);
+        System.out.println(token);
 
     }
 
 
     @Test
     public void test_after_delete_request_get() {
-
+        System.out.println(bookingId);
     }
 
 }
