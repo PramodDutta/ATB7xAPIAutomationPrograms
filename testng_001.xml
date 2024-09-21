@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="ATB7xAPIAutomationPrograms">
+        <classes>
+            <class name="com.thetestingacademy.ex_21092024.testngexamples.TestNG001">
+            </class>
+        </classes>
+    </test>
+</suite>
